@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# Peter Hayes's React project template
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), and then extended with other capabilites I like to have when developing React apps.
 
-## Available Scripts
+# Scripts
 
-In the project directory, you can run:
+- `yarn`: installs dependencies
+- `yarn start`: starts the development server
+- `yarn test`: starts the test runner
+- `yarn storybook`: starts the storybook component library
+- `yarn build`: builds the app for deployment
 
-### `yarn start`
+# CSS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project uses [Tailwind CSS](https://tailwindcss.com/) for styling. I followed [this guide](https://tailwindcss.com/docs/guides/create-react-app) to make Tailwind work with Create React App.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Storybook
 
-### `yarn test`
+I added [Storybook](https://storybook.js.org/) to create a gallery of my components. In a production app, I might also add visual regression testing on top of Storybook, but this generally requires a CI system to work well.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Linting and formatting
 
-### `yarn build`
+Several formatting steps are performed by VSCode. This is faster and generally works better than eslint-based formatting. However, this means that VSCode is implicitly required to develop using this repo. I would at some point like to find a solution that works in other editors and on CI.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The following formatters are run on save:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Prettier Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) uses [Prettier](https://prettier.io/) to format code.
+- [TypeScript Import Sorter](https://marketplace.visualstudio.com/items?itemName=mike-co.import-sorter) sorts Typescript imports.
+- [Headwind](https://marketplace.visualstudio.com/items?itemName=heybourn.headwind) sorts Tailwind class names.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+I also added some custom ESLint configuration on top of the default Create React App config:
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [Typescript](https://github.com/typescript-eslint/typescript-eslint) to enforce Typescript best practices.
+- Additional rules from [JSX Accessibility](https://www.google.com/search?client=firefox-b-1-e&q=eslint-plugin-jsx-a11y).
+- The [Prettier config](https://github.com/prettier/eslint-config-prettier) to disable rules that conflict with Prettier.

@@ -1,0 +1,15 @@
+{
+  // Use prettier to format on save
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+
+  // Make Tailwind work - no errors for directives, autocomplete
+  "css.validate": false,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+
+  // Sort imports and Tailwind classes on save
+  "importSorter.generalConfiguration.sortOnBeforeSave": true,
+  "headwind.runOnSave": true
+}

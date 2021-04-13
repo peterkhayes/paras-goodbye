@@ -5,19 +5,49 @@ interface Props {
   author: string;
   x: number;
   y: number;
-  index: number;
+  r: number;
+  speed: number;
+  isHovered: boolean;
+  onMouseEnter: (author: string) => void;
+  onMouseLeave: () => void;
 }
 
-export default function PizzaImage({ text, author, x, y, index }: Props) {
-  // TODO: transforms to center?
+export default function PizzaImage({
+  text,
+  author,
+  x,
+  y,
+  r,
+  speed,
+  isHovered,
+  onMouseEnter,
+  onMouseLeave,
+}: Props) {
   return (
     <div
-      className="absolute flex items-center justify-center -translate-x-1/2 -translate-y-1/2 w-96 h-72"
-      style={{ top: `${100 * y}%`, left: `${100 * x}%`, zIndex: index }}
+      className="absolute flex items-center justify-center -translate-x-1/2 -translate-y-1/2"
+      style={{
+        top: `${100 * y}%`,
+        left: `${100 * x}%`,
+        width: Math.floor(240 + 300000 * speed),
+        height: Math.floor(160 + 200000 * speed),
+        zIndex: Math.floor(1000000 * speed),
+      }}
+      onMouseEnter={() => onMouseEnter(author)}
+      onMouseLeave={onMouseLeave}
     >
-      <img alt="pizza" className="absolute inset-0" src={pizzaImg} />
-      <div className="relative z-10 w-56 p-2 text-xs bg-white rounded bg-opacity-70 -top-4">
-        <em>{text}</em> - <strong>{author}</strong>
+      <img
+        alt="pizza"
+        className="absolute"
+        src={pizzaImg}
+        style={{ transform: `rotate(${r}deg)` }}
+      />
+      <div
+        className={`z-10 w-56 p-2 text-xs bg-white rounded cursor-default ${
+          isHovered ? "" : "bg-opacity-80 opacity-80"
+        }`}
+      >
+        {text} - <strong>{author}</strong>
       </div>
     </div>
   );

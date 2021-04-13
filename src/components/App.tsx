@@ -14,33 +14,34 @@ interface FlyingPizza {
   dy: number;
   r: number;
   dr: number;
-  speed: number;
+  distance: number;
   text: string;
   author: string;
 }
 
-/*
- * reduce music volume and maybe put a low pass filter on it
- */
-
 const MIN_COORD = -0.2;
 const MAX_COORD = 1.2;
-const MAX_SPEED = 0.001;
+const SLOWDOWN_FACTOR = 150000;
 const FRAME_RATE = 60;
 const FRAME_DELAY = 1000 / FRAME_RATE;
+const MIN_DISTANCE = 80;
+const MAX_DISTANCE = 600;
 const GENERATION_SPEED = 2000;
 const SIMULTANEOUS_PIZZAS = 10;
+const INITIAL_PIZZAS = [createPizza()!];
+
+const audio = new Audio(musicFile);
+audio.loop = true;
 
 export default function App() {
   const [started, setStarted] = useState(false);
-  const [pizzas, setPizzas] = useState([createPizza()!]);
+  const [pizzas, setPizzas] = useState(INITIAL_PIZZAS);
   const hoveredPizzaRef = useRef<string | null>(null);
 
   // Play music
   useEffect(() => {
     if (!started) return;
-    const audio = new Audio(musicFile);
-    audio.loop = true;
+
     audio.play();
     return () => audio.pause();
   }, [started]);
@@ -89,7 +90,7 @@ export default function App() {
   }, [started]);
 
   const onMouseEnterPizza = useCallback((author: string) => {
-    hoveredPizzaRef.current = author;
+    hoveredPizzaRef.current = hoveredPizzaRef.current || author;
   }, []);
   const onMouseLeavePizza = useCallback(() => {
     hoveredPizzaRef.current = null;
@@ -105,7 +106,7 @@ export default function App() {
             style={{ width: "70%" }}
             className="opacity-20"
           />
-          {pizzas.map(({ text, author, x, y, r, speed }, i) => (
+          {pizzas.map(({ text, author, x, y, r, distance }, i) => (
             <PizzaImage
               key={i}
               text={text}
@@ -113,7 +114,7 @@ export default function App() {
               x={x}
               y={y}
               r={r}
-              speed={speed}
+              distance={distance}
               isHovered={hoveredPizzaRef.current === author}
               onMouseEnter={onMouseEnterPizza}
               onMouseLeave={onMouseLeavePizza}
@@ -132,20 +133,20 @@ export default function App() {
   );
 }
 
-function randInt(max: number) {
-  return Math.floor(Math.random() * max);
-}
-
 function randFloat(min: number, max: number) {
   return min + Math.random() * (max - min);
 }
 
+function randInt(min: number, max: number) {
+  return Math.floor(randFloat(min, max));
+}
+
 function sample<X>(arr: Array<X>): X {
-  return arr[randInt(arr.length)];
+  return arr[randInt(0, arr.length)];
 }
 
 function getStartPoint(): { x: number; y: number } {
-  const side = randInt(4);
+  const side = randInt(0, 4);
   switch (side) {
     case 0:
       // top
@@ -177,15 +178,20 @@ function createPizza(
   if (author == null) return null;
 
   const { x, y } = getStartPoint();
-  const speed = randFloat(0.2, 1) * MAX_SPEED;
-  const dx = (randFloat(0.4, 0.6) - x) * speed;
-  const dy = (randFloat(0.4, 0.6) - y) * speed;
-  const r = randInt(360);
-  const dr = 0.1;
+  const slope = (y - 0.5) / (x - 0.5);
+  const baseAngle = Math.atan(slope);
+  const adjustedAngle = baseAngle + randFloat(0, 0) + (x < 0.5 ? Math.PI : 0);
+
+  const distance = randInt(MIN_DISTANCE, MAX_DISTANCE);
+  const dx = (-1 * Math.cos(adjustedAngle) * distance) / SLOWDOWN_FACTOR;
+  const dy = (-1 * Math.sin(adjustedAngle) * distance) / SLOWDOWN_FACTOR;
+
+  const r = randInt(0, 360);
+  const dr = randFloat(0.05, 0.2);
 
   const text = MESSAGES[author];
 
-  return { x, y, speed, dx, dy, r, dr, author, text };
+  return { x, y, distance, dx, dy, r, dr, author, text };
 }
 
 function movePizza(pizza: FlyingPizza): FlyingPizza {

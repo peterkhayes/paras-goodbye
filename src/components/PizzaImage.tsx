@@ -6,7 +6,7 @@ interface Props {
   x: number;
   y: number;
   r: number;
-  speed: number;
+  distance: number;
   isHovered: boolean;
   onMouseEnter: (author: string) => void;
   onMouseLeave: () => void;
@@ -18,7 +18,7 @@ export default function PizzaImage({
   x,
   y,
   r,
-  speed,
+  distance,
   isHovered,
   onMouseEnter,
   onMouseLeave,
@@ -29,12 +29,10 @@ export default function PizzaImage({
       style={{
         top: `${100 * y}%`,
         left: `${100 * x}%`,
-        width: Math.floor(240 + 300000 * speed),
-        height: Math.floor(160 + 200000 * speed),
-        zIndex: Math.floor(1000000 * speed),
+        width: 90000 / distance,
+        height: 60000 / distance,
+        zIndex: Math.floor(100000 - (isHovered ? 0 : distance)),
       }}
-      onMouseEnter={() => onMouseEnter(author)}
-      onMouseLeave={onMouseLeave}
     >
       <img
         alt="pizza"
@@ -46,6 +44,8 @@ export default function PizzaImage({
         className={`z-10 w-56 p-2 text-xs bg-white rounded cursor-default ${
           isHovered ? "" : "bg-opacity-80 opacity-80"
         }`}
+        onMouseEnter={() => onMouseEnter(author)}
+        onMouseLeave={onMouseLeave}
       >
         {text} - <strong>{author}</strong>
       </div>

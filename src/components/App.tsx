@@ -25,7 +25,7 @@ interface FlyingPizza {
 
 const MIN_COORD = -0.2;
 const MAX_COORD = 1.2;
-const MAX_SPEED = 0.0008;
+const MAX_SPEED = 0.001;
 const FRAME_RATE = 60;
 const FRAME_DELAY = 1000 / FRAME_RATE;
 const GENERATION_SPEED = 2000;

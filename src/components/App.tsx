@@ -179,8 +179,8 @@ function createPizza(
 
   const { x, y } = getStartPoint();
   const slope = (y - 0.5) / (x - 0.5);
-  const baseAngle = Math.atan(slope);
-  const adjustedAngle = baseAngle + randFloat(0, 0) + (x < 0.5 ? Math.PI : 0);
+  const baseAngle = Math.atan(slope) + (x < 0.5 ? Math.PI : 0);
+  const adjustedAngle = baseAngle + randFloat(-0.5, 0.5);
 
   const distance = randInt(MIN_DISTANCE, MAX_DISTANCE);
   const dx = (-1 * Math.cos(adjustedAngle) * distance) / SLOWDOWN_FACTOR;

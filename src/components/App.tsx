@@ -19,34 +19,50 @@ interface FlyingPizza {
   author: string;
 }
 
-const MIN_COORD = -0.2;
-const MAX_COORD = 1.2;
-const SLOWDOWN_FACTOR = 150000;
+// Pizzas start this far off the screen, so that they can gradually slide into view.
+const MIN_COORD = -0.5;
+const MAX_COORD = 1.5;
+
+// Pizzas vary in distance from the camera, affecting size and speed.
+const MIN_DISTANCE = 100;
+const MAX_DISTANCE = 600;
+
+// Pizzas by default aim for the center but can diverge by this many radians.
+const ANGLE_RANDOMZIER = 0.4;
+
+// Animation speed, 60fps baybee
 const FRAME_RATE = 60;
 const FRAME_DELAY = 1000 / FRAME_RATE;
-const MIN_DISTANCE = 80;
-const MAX_DISTANCE = 600;
-const GENERATION_SPEED = 2000;
+
+// Arbitrary number to keep the pizza speed reasonable.
+const SLOWDOWN_FACTOR = 200000;
+
+// Max number of pizzas on screen
 const SIMULTANEOUS_PIZZAS = 10;
+
+// Pizzas are created this often if there are fewer than the max
+const GENERATION_SPEED = 1500;
+
+// Start with one pizza
 const INITIAL_PIZZAS = [createPizza()!];
 
-const audio = new Audio(musicFile);
-audio.loop = true;
+const BG_MUSIC = new Audio(musicFile);
+BG_MUSIC.loop = true;
 
 export default function App() {
   const [started, setStarted] = useState(false);
   const [pizzas, setPizzas] = useState(INITIAL_PIZZAS);
   const hoveredPizzaRef = useRef<string | null>(null);
 
-  // Play music
+  // Play music once user clicks
   useEffect(() => {
     if (!started) return;
 
-    audio.play();
-    return () => audio.pause();
+    BG_MUSIC.play();
+    return () => BG_MUSIC.pause();
   }, [started]);
 
-  // Generate new pizzas
+  // Generate a new pizza on an interval if there are fewer than the max
   useEffect(() => {
     if (!started) return;
 
@@ -69,20 +85,20 @@ export default function App() {
     return () => clearInterval(interval);
   }, [started]);
 
-  // Move pizzas
+  // Move pizzas every frame, except for the hovered one
   useEffect(() => {
     if (!started) return;
     const interval = setInterval(
       () =>
-        setPizzas((existingPizzas) => {
-          return existingPizzas
+        setPizzas((existingPizzas) =>
+          existingPizzas
             .map((pizza) =>
               pizza.author === hoveredPizzaRef.current
                 ? pizza
                 : movePizza(pizza)
             )
-            .filter(isInBounds);
-        }),
+            .filter(isInBounds)
+        ),
       FRAME_DELAY
     );
 
@@ -180,7 +196,8 @@ function createPizza(
   const { x, y } = getStartPoint();
   const slope = (y - 0.5) / (x - 0.5);
   const baseAngle = Math.atan(slope) + (x < 0.5 ? Math.PI : 0);
-  const adjustedAngle = baseAngle + randFloat(-0.5, 0.5);
+  const adjustedAngle =
+    baseAngle + randFloat(-1 * ANGLE_RANDOMZIER, ANGLE_RANDOMZIER);
 
   const distance = randInt(MIN_DISTANCE, MAX_DISTANCE);
   const dx = (-1 * Math.cos(adjustedAngle) * distance) / SLOWDOWN_FACTOR;

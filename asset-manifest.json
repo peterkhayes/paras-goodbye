@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/paras-goodbye/static/css/main.7a3b6012.chunk.css",
-    "main.js": "/paras-goodbye/static/js/main.639d3dbe.chunk.js",
-    "main.js.map": "/paras-goodbye/static/js/main.639d3dbe.chunk.js.map",
+    "main.css": "/paras-goodbye/static/css/main.17fa1772.chunk.css",
+    "main.js": "/paras-goodbye/static/js/main.ce40e96e.chunk.js",
+    "main.js.map": "/paras-goodbye/static/js/main.ce40e96e.chunk.js.map",
     "runtime-main.js": "/paras-goodbye/static/js/runtime-main.70a512de.js",
     "runtime-main.js.map": "/paras-goodbye/static/js/runtime-main.70a512de.js.map",
     "static/js/2.4032a851.chunk.js": "/paras-goodbye/static/js/2.4032a851.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.58a0cafd.chunk.js": "/paras-goodbye/static/js/3.58a0cafd.chunk.js",
     "static/js/3.58a0cafd.chunk.js.map": "/paras-goodbye/static/js/3.58a0cafd.chunk.js.map",
     "index.html": "/paras-goodbye/index.html",
-    "static/css/main.7a3b6012.chunk.css.map": "/paras-goodbye/static/css/main.7a3b6012.chunk.css.map",
+    "static/css/main.17fa1772.chunk.css.map": "/paras-goodbye/static/css/main.17fa1772.chunk.css.map",
     "static/js/2.4032a851.chunk.js.LICENSE.txt": "/paras-goodbye/static/js/2.4032a851.chunk.js.LICENSE.txt",
     "static/media/paras.4a9a5b87.svg": "/paras-goodbye/static/media/paras.4a9a5b87.svg",
     "static/media/pizza-slice.964c723b.png": "/paras-goodbye/static/media/pizza-slice.964c723b.png",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.70a512de.js",
     "static/js/2.4032a851.chunk.js",
-    "static/css/main.7a3b6012.chunk.css",
-    "static/js/main.639d3dbe.chunk.js"
+    "static/css/main.17fa1772.chunk.css",
+    "static/js/main.ce40e96e.chunk.js"
   ]
 }

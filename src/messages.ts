@@ -1,4 +1,6 @@
 const MESSAGES: Record<string, string> = {
+  Al:
+    "Paras - #woo-music won't be the same without your excellent contributions. Although we never worked directly, I def noticed your influence in engineering leadership with creating a welcome environment and I hope we'll continue in your absence. And since this is pizza-themed, let's do a back-to-back at Gioia in Hayes, then Il Casaro on Church sometime!",
   Alyssa:
     "I'm so happy to have met you! You have done so many incredible things for Remix, I probably only know the tip of the iceberg! I also really liked seeing you in #pizza and #woo-music, I'll miss you.",
   Brooke:
@@ -22,6 +24,10 @@ const MESSAGES: Record<string, string> = {
     "PARAS! I remember when I first started at Remix, you were so warm and welcoming and chilllll, and then we got talking about music and festivals and I was like damn... this guy is cool. You brought such a special vibe to work every day and I'm gonna miss it and you! Best of luck on your next zaaaaventure buddy 🍕 and I hope to see you groovin' around sometime at a show soon, once it's safe :) Take care!",
   Isaac:
     "It's been such a pleasure working with and learning from you. You bring such a contagiously positive energy to everything you do. See ya around!",
+  Juliana:
+    "Paras, thank you so much for all your support to Jr engs, good luck in your next adventure!",
+  Joycelin:
+    "I am so sad to see you go Paras! I already told you this but you are such a culture-influencer and a great teacher. Thanks for all of your support on the team and especially for the support you made sure I had as a jr engineer. I will really miss you but I’m glad you are doing what you feel is best for you.",
   Kate:
     "Paras, thank you so much for being an important, irreplaceable, genuine part of culture at Remix.",
   Kelsey:
@@ -35,7 +41,7 @@ const MESSAGES: Record<string, string> = {
   Priya:
     "Paras, thank you for helping make Remix a place where folks can learn, grow, and be themselves. You've contributed greatly to the sense of community and belonging at Remix, and you will be missed!",
   Qiqi:
-    "Sad that the transit team is losing an important slice of 🍕 ! Although we've only worked together for a way too brief amount of time, I've truly appreciate your authenticity, thoughtfulness, and your care for the team. Wishing you the very best for whatever you choose to do next - you will be missed! ",
+    "Sad that the transit team is losing an important slice of 🍕 ! Although we've only worked together for a way too brief amount of time, I've truly appreciate your authenticity, thoughtfulness, and your care for the team. Wishing you the very best for whatever you choose to do next - you will be missed!",
   Sachin: "Let's meet up at Zante's and try some Indian pizza!",
   Sarah:
     "It has been such a pleasure working with you over the last couple of years.  In particular I am so grateful that I had the opportunity to partner with you as team leads for the Transit team.  I have learned so much from you and know I am a better PM thanks to your feedback and teamwork.  Your impact on this team is strongly felt: your EM leadership has resulted in a team that prioritizes pairing and discourages heroics.  Thank you so much for everything you have brought to this team and best of luck with your next adventure.",

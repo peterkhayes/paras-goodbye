@@ -47,7 +47,9 @@ export default function PizzaImage({
         onMouseEnter={() => onMouseEnter(author)}
         onMouseLeave={onMouseLeave}
       >
-        {text} - <strong>{author}</strong>
+        {text}
+        <br />
+        <div className="font-bold text-right">- {author}</div>
       </div>
     </div>
   );

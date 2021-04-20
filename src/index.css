@@ -3,17 +3,26 @@
 @tailwind utilities;
 
 .bg-animation {
-  animation: 90s linear infinite bg-animation;
+  animation: 50s linear infinite bg-animation-x,
+    100s linear infinite bg-animation-y;
 }
 
-@keyframes bg-animation {
+@keyframes bg-animation-x {
   from {
     background-position-x: 0%;
-    background-position-y: 25%;
   }
 
   to {
     background-position-x: 100%;
-    background-position-y: 75%;
+  }
+}
+
+@keyframes bg-animation-y {
+  from {
+    background-position-y: 0%;
+  }
+
+  to {
+    background-position-y: 100%;
   }
 }

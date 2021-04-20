@@ -32,6 +32,8 @@ const MESSAGES: Record<string, string> = {
     "Paras, thank you so much for being an important, irreplaceable, genuine part of culture at Remix.",
   Kelsey:
     "We will miss you, Paras! Hope to cross paths again in the future. :)",
+  Krithin:
+    "Thanks for everything you've brought to Remix; and for sharing your expertise and showing me how Rails is simultaneously the absolute worst and also not all that bad.",
   Matthew:
     "Paras - I'm so glad we got to share one of my favorite slices when you visited for MTA workshops! You've been a wonderful steward of Transit and am grateful to have worked with such a passionate and principled colleague. Looking forward to meeting up the next time you're home in NY :)",
   Loren:

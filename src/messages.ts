@@ -22,6 +22,8 @@ const MESSAGES: Record<string, string> = {
     "Wishing you all the best on your next adventure. May the zahhhh parties continue where ever you go!! 🍕🍕",
   Gories:
     "PARAS! I remember when I first started at Remix, you were so warm and welcoming and chilllll, and then we got talking about music and festivals and I was like damn... this guy is cool. You brought such a special vibe to work every day and I'm gonna miss it and you! Best of luck on your next zaaaaventure buddy 🍕 and I hope to see you groovin' around sometime at a show soon, once it's safe :) Take care!",
+  Hari:
+    "Feeling downbeat that you're leaving but psyched to hear about what you'll do next. Godspeed and make some noise out there 🚀",
   Isaac:
     "It's been such a pleasure working with and learning from you. You bring such a contagiously positive energy to everything you do. See ya around!",
   Juliana:
@@ -44,6 +46,12 @@ const MESSAGES: Record<string, string> = {
     "Paras, thank you for helping make Remix a place where folks can learn, grow, and be themselves. You've contributed greatly to the sense of community and belonging at Remix, and you will be missed!",
   Qiqi:
     "Sad that the transit team is losing an important slice of 🍕 ! Although we've only worked together for a way too brief amount of time, I've truly appreciate your authenticity, thoughtfulness, and your care for the team. Wishing you the very best for whatever you choose to do next - you will be missed!",
+  Raja:
+    "Paras! I'm going to miss you. You brought a lot to the team, whether it be your hipster music vibes (in all seriousness, your musical knowledge is impressive), a strong civic tech ethic, or the vulnerability you brought to the management team. You really pushed us to a higher level of supporting the folks on our team, like advocating for better mentorship practices. It was a tough year, but we made it through together. Thank you for everything. Please keep in touch!",
+  Rebekah:
+    "Paras, Thank you for all that you contributed to Remix and the Transit team! I really enjoyed working with you and can't wait to see what you do next!",
+  "Ryan T":
+    "I'm sad I never got to share a slice of pizza with you. Hopefully we can change that soon. Thanks for everything you did to make Remix a better place and Transit an awesome team. Best of luck!",
   Sachin: "Let's meet up at Zante's and try some Indian pizza!",
   Sarah:
     "It has been such a pleasure working with you over the last couple of years.  In particular I am so grateful that I had the opportunity to partner with you as team leads for the Transit team.  I have learned so much from you and know I am a better PM thanks to your feedback and teamwork.  Your impact on this team is strongly felt: your EM leadership has resulted in a team that prioritizes pairing and discourages heroics.  Thank you so much for everything you have brought to this team and best of luck with your next adventure.",
